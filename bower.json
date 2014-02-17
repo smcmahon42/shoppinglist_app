@@ -1,0 +1,22 @@
+{
+  "name": "list",
+  "version": "0.0.1",
+  "dependencies": {
+    "angular": "~1.0.7",
+    "jquery": "~1.10.0",
+    "jquery.cookie": null,
+    "bootstrap-sass": null,
+    "es5-shim": null,
+    "angular-resource": null,
+    "angular-cookies": null,
+    "angular-sanitize": null,
+    "angular-animate": null,
+    "angular-route": null,
+    "requirejs": null,
+    "rjs": null
+  },
+  "devDependencies": {
+    "angular-mocks": "~1.0.7",
+    "angular-scenario": "~1.0.7"
+  }
+}
