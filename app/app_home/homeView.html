@@ -1,0 +1,15 @@
+<h1>Home Page</h1>
+
+<section>
+	<a ng-href="#/signup">Sign Up</a>
+	<br><br />
+  <form novalidate class="login-form">
+    E-mail: <input type="email" ng-model="user.email" /><br />
+    Password: <input type="password" ng-model="user.password"  />
+    <button ng-click="login(user)">Submit</button>
+  </form>
+  <pre>form = {{user | json}}</pre>
+  <pre>master = {{master | json}}</pre>
+
+</section>
+

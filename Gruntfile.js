@@ -16,7 +16,19 @@ module.exports = function(grunt) {
 
     bower: {
       target: {
-        rjsConfig: 'app/scripts/config.js'
+        rjsConfig: 'app/config.js'
+      }
+    },
+
+    requirejs: { //https://github.com/gruntjs/grunt-contrib-requirejs
+      compile: {
+        options: {
+          mainConfigFile : "app/config.js",
+          baseUrl : "app", 
+          name: "config", 
+          out: "app/main.js", 
+          findNestedDependencies: true
+        }
       }
     },
 
@@ -44,11 +56,14 @@ module.exports = function(grunt) {
   });
 
   grunt.loadNpmTasks('grunt-bower-requirejs');
+  grunt.loadNpmTasks('grunt-contrib-requirejs');
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-compass');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-karma');
 
   grunt.registerTask('default', ['watch']);
   grunt.registerTask('default', ['bower']);
   grunt.registerTask('default', ['compass']);
+  grunt.registerTask('default', ['requirejs']);
 };
