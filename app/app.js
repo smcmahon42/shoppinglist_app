@@ -19,11 +19,11 @@ define(
   ],
 
   // Initialize r360Admin.js, given dependencies
-  function(angular, angularCookies, angularGenstures, angularRoute, jQuery, jQueryCookies, base64) {
+  function(angular, angularCookies, angularGestures, angularRoute, jQuery, jQueryCookies, base64) {
 
     // Define the root angular module for the application.
     // It depends on ngRoute for routing.
-    var listApp = angular.module('ListApp', ['ngRoute', 'angularGenstures']);
+    var listApp = angular.module('ListApp', ['ngRoute', 'angular-gestures']);
 
     require(
       [
