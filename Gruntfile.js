@@ -16,30 +16,31 @@ module.exports = function(grunt) {
   var opt = grunt.option('opt') || 'none';//none or uglify
 
   //REGISTERD TASKS
-  grunt.registerTask('listen', ['watch']);
-  grunt.registerTask('bbuild', ['bower']);
-  grunt.registerTask('cbuild', ['compass']);
-  grunt.registerTask('rbuild', ['requirejs']);
-  grunt.registerTask('build', ['compass:build', 'requirejs', 'clean', 'copy', 'karma:continuous']);
+  grunt.registerTask('listen',  ['watch']);
+  grunt.registerTask('bbuild',  ['bower']);
+  grunt.registerTask('cbuild',  ['compass']);
+  grunt.registerTask('rbuild',  ['requirejs']);
+  grunt.registerTask('build',   ['compass:build', 'requirejs', 'clean', 'copy', 'karma:continuous']);
   grunt.registerTask('release', ['compass:release', 'requirejs', 'clean', 'copy', 'karma:continuous']);
 
   // Project configuration.
   grunt.initConfig({
     distdir: 'dist',
+    srcdir: 'src',
     pkg: grunt.file.readJSON('package.json'),
     clean: ['<%= distdir %>/*'],
     copy: {
       assets: {
         files: [{ 
           dest: '<%= distdir %>', 
-          src : ['css/**','index.html', 'assets/**', 'app/main.js', 'app/**', '!app/**/*.js' ], 
+          src : ['css/**','index.html', 'assets/**', '!app/**/*.js', 'app/main.js' ], 
           expand: true, 
-          cwd: 'build' }]
+          cwd: '<%= srcdir %>' }]
       }
     },//copy
     bower: {
       target: {
-        rjsConfig: 'src/app/config.js'
+        rjsConfig: '<%= srcdir %>/app/config.js'
       }
     },//bower
     karma: {
@@ -76,9 +77,9 @@ module.exports = function(grunt) {
         compile: {
             options: {
               mainConfigFile : "src/app/config.js",
-              baseUrl : "src/app", 
+              baseUrl : "<%= srcdir %>/app", 
               name: "config", 
-              out: "src/app/main.js", 
+              out: "<%= srcdir %>/app/main.js", 
               findNestedDependencies: true,
               keepBuildDir: true,
               optimize: opt
@@ -89,8 +90,8 @@ module.exports = function(grunt) {
      build: {
         dist: {
           options: {
-            sassDir: 'src/sass',
-            cssDir:  'src/css',
+            sassDir: '<%= srcdir %>/sass',
+            cssDir:  '<%= srcdir %>/css',
             imagesPath: '../assets',
             environment: 'development',
             outputStyle : 'expanded'
@@ -101,7 +102,7 @@ module.exports = function(grunt) {
         dist: {
           options: {
             sassDir: 'sass',
-            cssDir:  'src/css',
+            cssDir:  '<%= srcdir %>/css',
             imagesPath: '../assets',
             environment: 'production',
             outputStyle : 'compressed'
@@ -115,13 +116,13 @@ module.exports = function(grunt) {
           banner: "/* This file generated with 'grunt sass'. Don't edit it directly. Edit files in /sass/ directory instead. */",
         },
         files: {
-          'src/css/main.css': 'src/sass/main.scss'
+          '<%= srcdir %>/css/main.css': '<%= srcdir %>/sass/main.scss'
         }
       }
     },//sass
     watch: {
       css: {
-        files: ['srv/sass/*/*.scss', 'src/app/js/**/*.js', 'test/browser/**/*.js'],
+        files: ['<%= srcdir %>/sass/*/*.scss', '<%= srcdir %>/app/js/**/*.js', 'test/browser/**/*.js'],
         tasks: ['compass:build', 'requirejs', 'clean', 'copy', 'karma:continuous'],
         options: {
           livereload: 80000
