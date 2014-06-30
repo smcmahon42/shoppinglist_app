@@ -1,34 +1,40 @@
 {
   "name": "list",
   "version": "0.0.1",
-  "main": "main.js",
-  "dependencies": {
-    "grunt": "latest",
-    "grunt-cli": "latest",
-    "grunt-contrib-concat": "latest",
-    "grunt-contrib-uglify": "latest",
-    "grunt-contrib-sass": "latest",
-    "grunt-contrib-compass": "latest",
-    "grunt-contrib-watch": "latest",
-    "grunt-contrib-requirejs": "latest"
-  },
-  "devDependencies": {
-    "grunt": "~0.4.2",
-    "bower": "~1.2.8",
-    "grunt-karma" : "latest",
-    "grunt-bower-requirejs": "~0.8.4"
-  },
-  "scripts": {
-    "test": "grunt test"
-  },
-  "description": "List Project",
+  "description": "AngularJS List App Test Project",
   "directories": {
     "test": "test"
   },
-  "repository": {
-    "type": "git",
-    "url": "/Users/seanmcmahon/Sites/testDev/list"
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "bower": "latest",
+    "grunt": "latest",
+    "grunt-bower-requirejs": "latest",
+    "grunt-cli": "latest",
+    "grunt-contrib-clean": "latest",
+    "grunt-contrib-compass": "latest",
+    "grunt-contrib-concat": "latest",
+    "grunt-contrib-copy": "latest",
+    "grunt-contrib-requirejs": "latest",
+    "grunt-contrib-sass": "latest",
+    "grunt-contrib-uglify": "latest",
+    "grunt-contrib-watch": "latest",
+    "grunt-karma": "latest",
+    "grunt-protractor-runner": "^1.0.0",
+    "karma": "^0.12.16",
+    "karma-chrome-launcher": "^0.1.4",
+    "karma-coffee-preprocessor": "~0.1.0",
+    "karma-firefox-launcher": "~0.1.0",
+    "karma-html2js-preprocessor": "~0.1.0",
+    "karma-jasmine": "^0.1.5",
+    "karma-ng-scenario": "~0.1.0",
+    "karma-phantomjs-launcher": "~0.1.0",
+    "karma-requirejs": "~0.1.0",
+    "karma-script-launcher": "~0.1.0"
   },
   "author": "Sean McMahon",
-  "license": "BSD-2-Clause"
+  "license": "MIT",
+  "readmeFilename": "README.md"
 }

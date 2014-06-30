@@ -1,23 +1,30 @@
 {
-  "name": "list",
+  "name": "List App",
   "version": "0.0.1",
-  "dependencies": {
-    "angular": "~1.0.7",
-    "jquery": "~1.11.0",
-    "jquery.cookie": null,
-    "base64": null,
-    "bootstrap-sass": null,
-    "es5-shim": null,
-    "angular-resource": null,
-    "angular-cookies": null,
-    "angular-sanitize": null,
-    "angular-animate": null,
-    "angular-route": null,
-    "requirejs": null,
-    "rjs": null
-  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
   "devDependencies": {
-    "angular-mocks": "~1.0.7",
-    "angular-scenario": "~1.0.7"
+    
+    "jquery": "~1.11.0",
+    "jquery.cookie": "latest",
+    "base64": "latest",
+    "es5-shim": "latest",
+    "angular": "~1.2.18",
+    "angular-scenario": "~1.2.1",
+    "angular-route": "~1.2.1",
+    "angular-mocks": "~1.2.1",
+    "angular-resource": "latest",
+    "angular-cookies": "latest",
+    "angular-sanitize": "latest",
+    "angular-animate": "latest",
+    "angular-route": "latest",
+    "requirejs": "latest",
+    "requirejs-text": "latest"
   }
 }
+

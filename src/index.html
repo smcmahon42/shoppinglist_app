@@ -1,0 +1,22 @@
+<!doctype html>
+<html ng-app>
+	<head>
+		<title>Angular-RequireJS sample app</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<link rel="stylesheet" type="text/css" media="all" href="css/main.css" />
+	</head>
+	  <body >
+	  	
+		<div ng-controller="GreetingController">
+		  {{ greeting }}
+		</div>
+		<div ng-controller="MyCtrl">
+		  {{ second }}
+		</div>
+		
+	    <div class="container" ng-view=""></div>
+
+		<script data-main="app/config.js" src="vendor/requirejs/require.js"></script>		
+	</body>
+</html>

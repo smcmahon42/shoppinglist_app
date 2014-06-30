@@ -1,8 +1,5 @@
+## MAC OS X
+.DS_Store
 node_modules
 dist
-.tmp
-.sass-cache
-app/bower_components
-Capfile
-config/deploy.rb
-config/deploy/*.rb
+logs
