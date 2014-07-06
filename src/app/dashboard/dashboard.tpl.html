@@ -1,0 +1,29 @@
+<nav>
+	<h1>Dashboard Menu</h1>
+	
+	<button class="button action" ng-click="logoutBtn()">Log Out</button>
+</nav>
+	
+	<div ng-show="currentUser.loggedIn">
+		<b>{{currentUser.data.first_name}} {{currentUser.data.last_name}}</b>
+	</div>
+
+<section>
+
+	<article>
+		<a class="button nav" href="#/groups/make">Make a Group</a>
+		<a class="button nav" href="#/groups/my">My Groups</a>
+	</article>
+	<article>
+		<a class="button nav" href="#/groups/my">Join a Groups</a>
+	</article>
+	<article>
+		<a class="button nav" href="#/account">Edit Account</a>
+	</article>
+	<article>
+		<a class="button nav" href="#/lists">View All Shopping Lists</a>
+	</article>
+
+
+</section>
+

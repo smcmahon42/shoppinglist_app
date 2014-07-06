@@ -12,9 +12,9 @@
     
     "jquery": "~1.11.0",
     "jquery.cookie": "latest",
-    "base64": "latest",
     "es5-shim": "latest",
     "angular": "~1.2.18",
+    "angular-base64": "latest",
     "angular-scenario": "~1.2.1",
     "angular-route": "~1.2.1",
     "angular-mocks": "~1.2.1",

@@ -33,7 +33,14 @@ module.exports = function(grunt) {
       assets: {
         files: [{ 
           dest: '<%= distdir %>', 
-          src : ['css/**','index.html', 'assets/**', '!app/**/*.js', 'app/main.js' ], 
+          src : [ 'css/**','index.html', 
+                  'assets/**', 'app/**', 
+                  '!app/**/*.js', 
+                  'app/main.js', 
+                  '!app/_directives', 
+                  '!app/_services', 
+                  'vendor/requirejs/require.js' 
+                ], 
           expand: true, 
           cwd: '<%= srcdir %>' }]
       }
@@ -54,7 +61,7 @@ module.exports = function(grunt) {
       },
       continuous: {
         singleRun: true,
-        browsers: ['PhantomJS', 'Chrome']
+        browsers: ['PhantomJS']
       }
     },//karma
     protractor: {
@@ -122,7 +129,7 @@ module.exports = function(grunt) {
     },//sass
     watch: {
       css: {
-        files: ['<%= srcdir %>/sass/*/*.scss', '<%= srcdir %>/app/js/**/*.js', 'test/browser/**/*.js'],
+        files: ['<%= srcdir %>/sass/*/*.scss', '<%= srcdir %>/app/**/*.js', 'test/browser/**/*.js'],
         tasks: ['compass:build', 'requirejs', 'clean', 'copy', 'karma:continuous'],
         options: {
           livereload: 80000
