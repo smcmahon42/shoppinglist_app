@@ -5,9 +5,11 @@ define([
 	'_services/apiConfig',
 	'_services/apiService',
 	'_services/loginService',
+	'_services/groupService',
 	'home/homeMod',
 	'dashboard/dashboardMod',
-	'signup/signupMod'
+	'signup/signupMod',
+	'groups/myGroupsMod'
 	], function () {
 		'use strict';
 
@@ -22,7 +24,9 @@ define([
 			'dashboardMod', 
 			'apiConfig', 
 			'apiService',
-			'loginService'
+			'groupService',
+			'loginService',
+			'myGroupsMod'
 			])
 
 			.run(['$state', '$location', 'logInSvc', function ($state, $location, logInSvc) {
@@ -37,13 +41,13 @@ define([
 			.controller('mainController', ['$rootScope', '$scope', '$state', 'logInSvc', 
 				function($rootScope, $scope, $state, logInSvc) {
 
-				$scope.currentUser = { loggedIn: false };
-				$scope.signupData  = { firstTime: false };
+				$rootScope.currentUser = { loggedIn: false };
+				$rootScope.signupData  = { firstTime: false };
 
 				//Global OnClick calls
 				$scope.logoutBtn = function(){
-					$scope.currentUser = { loggedIn: false };
-					$scope.signupData  = { firstTime: false };
+					$rootScope.currentUser = { loggedIn: false };
+					$rootScope.signupData  = { firstTime: false };
 					logInSvc.logout();
 				}
 
@@ -69,8 +73,8 @@ define([
 				if(logInSvc.hasCookie() && !$scope.currentUser.loggedIn){
 					logInSvc.setCurrentUser().then(
 						function(currentUser){
-							$scope.currentUser.loggedIn = true;
-							$scope.currentUser.data = currentUser;
+							$rootScope.currentUser.loggedIn = true;
+							$rootScope.currentUser.data = currentUser;
 						}
 					);	
 				}

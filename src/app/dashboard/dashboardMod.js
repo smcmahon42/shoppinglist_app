@@ -14,10 +14,9 @@ define(['angular'], function (angular) {
 
 		}])
 
-		.controller('dashCtrl', [ '$scope', 'logInSvc',
-			function( $scope, logInSvc) {
-			
-
+		.controller('dashCtrl', ['$state', '$scope', 'logInSvc',
+			function($state, $scope, logInSvc) {
+							
 		}]);//app
 
 });

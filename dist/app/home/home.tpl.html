@@ -1,0 +1,26 @@
+<nav>
+	<h1>Sign In</h1>
+	
+  <a class="button action" ui-sref="signup">SignUp</a>
+</nav>
+
+<section>
+
+  <form novalidate class="signin-form">
+    <p class="error" ng-show="signInError">Invalid Email or Password.</p>
+    <article>
+      <label for="email">Email</label>
+      <input id="email" type="email" ng-model="signin.email" />
+    </article>
+
+    <article>
+      <label for="password">Password</label>
+      <input id="password" type="password" ng-model="signin.password" />
+    </article>
+
+    <button ng-click="login()">Sign In</button>
+
+  </form>
+
+</section>
+

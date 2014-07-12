@@ -14,8 +14,8 @@ define(['angular'], function (angular) {
 
 		}])
 
-		.controller('homeCtrl', ['$scope', '$location', '$state', 'logInSvc',
-		  	function($scope, $location, $state, logInSvc) {
+		.controller('homeCtrl', ['$rootScope', '$scope', '$location', '$state', 'logInSvc',
+		  	function($rootScope, $scope, $location, $state, logInSvc) {
 
 		  	$scope.signInError = false;
 		  	$scope.signin = {
@@ -34,8 +34,8 @@ define(['angular'], function (angular) {
 						$scope.signin.password
 					)
 					.then(function(userData){
-						$scope.currentUser.loggedIn = true;
-						$scope.currentUser.data = userData;
+						$rootScope.currentUser.loggedIn = true;
+						$rootScope.currentUser.data = userData;
 						$state.go('dashboard');
 					},function(status){
 						alert('There is an error in your form. Please try again.');

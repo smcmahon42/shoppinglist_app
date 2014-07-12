@@ -1,0 +1,41 @@
+<nav>
+  <h1>Sign Up</h1>
+  
+  <a class="button action" ng-href="#/">Back</a>
+</nav>
+
+<section>
+
+  <form novalidate class="signup-form">
+    
+    <article>
+      <label for="firstname">First Name</label>
+      <input id="firstname" name="first_name" type="text" ng-model="signup.first_name" />
+    </article>
+    
+    <article>
+      <label for="lastname">Last Name</label>
+      <input id="lastname" name="last_name" type="text" ng-model="signup.last_name" />
+    </article>
+
+    <article>
+      <label for="email">E-mail</label>
+      <input id="email" name="email" type="email" ng-model="signup.email" />
+    </article>
+
+    <article>
+      <label for="password">Password</label>
+      <input id="password" name="password" type="password" ng-model="signup.password" />
+    </article>
+
+    <article>
+      <label for="paswordconf">Password Confirm</label>
+      <input id="passwordconf" name="password_confirmation" type="password" ng-model="signup.password_confirmation" />
+    </article>
+
+    <button ng-click="register(signup)">Sign Up</button>
+
+  </form>
+
+</section>
+
