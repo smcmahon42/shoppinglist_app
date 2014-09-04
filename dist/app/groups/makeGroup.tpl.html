@@ -1,0 +1,13 @@
+
+<h1>Make Group</h1>
+<div ui-view="topNav"></div>
+
+<form action="">
+	<input type="text" ng-model="groupName" >
+	<br><br>
+	<label >Is it a Private Group</label>
+	<p>False <input type="radio" ng-model="isPrivate" value="false" > </p>
+	<p>True <input type="radio" ng-model="isPrivate" value="true" ></p>
+
+	<button ng-click="makeGroup(groupName, isPrivate)">Make Group</button>
+</form>

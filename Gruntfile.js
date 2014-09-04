@@ -20,8 +20,8 @@ module.exports = function(grunt) {
   grunt.registerTask('bbuild',  ['bower']);
   grunt.registerTask('cbuild',  ['compass']);
   grunt.registerTask('rbuild',  ['requirejs']);
-  grunt.registerTask('build',   ['compass:build', 'requirejs', 'clean', 'copy', 'karma:continuous']);
-  grunt.registerTask('release', ['compass:release', 'requirejs', 'clean', 'copy', 'karma:continuous']);
+  grunt.registerTask('build',   ['compass:dev', 'requirejs', 'clean', 'copy', 'karma:continuous']);
+  grunt.registerTask('release', ['compass:dist', 'requirejs', 'clean', 'copy', 'karma:continuous']);
 
   // Project configuration.
   grunt.initConfig({
@@ -94,28 +94,24 @@ module.exports = function(grunt) {
         }
     },//requirejs
     compass: {
-     build: {
-        dist: {
-          options: {
-            sassDir: '<%= srcdir %>/sass',
-            cssDir:  '<%= srcdir %>/css',
-            imagesPath: '../assets',
-            environment: 'development',
-            outputStyle : 'expanded'
-          }
+      dev: {
+        options: {
+          sassDir: '<%= srcdir %>/sass',
+          cssDir:  '<%= srcdir %>/css',
+          imagesPath: '../assets',
+          environment: 'development',
+          outputStyle : 'expanded'
         }
-      },//build
-      release: {
-        dist: {
-          options: {
-            sassDir: 'sass',
-            cssDir:  '<%= srcdir %>/css',
-            imagesPath: '../assets',
-            environment: 'production',
-            outputStyle : 'compressed'
-          }
+      },
+      dist: {
+        options: {
+          sassDir: '<%= srcdir %>/sass',
+          cssDir:  '<%= srcdir %>/css',
+          imagesPath: '../assets',
+          environment: 'production',
+          outputStyle : 'compressed'
         }
-      }//release
+      }
     },//compass
     sass: {
       dist: {

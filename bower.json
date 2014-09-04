@@ -10,19 +10,15 @@
   ],
   "devDependencies": {
     
-    "jquery": "~1.11.0",
+    "jquery": "~2.1.1",
     "jquery.cookie": "latest",
-    "es5-shim": "latest",
     "angular": "~1.2.18",
     "angular-base64": "latest",
-    "angular-scenario": "~1.2.1",
-    "angular-route": "~1.2.1",
     "angular-mocks": "~1.2.1",
     "angular-resource": "latest",
-    "angular-cookies": "latest",
     "angular-sanitize": "latest",
     "angular-animate": "latest",
-    "angular-route": "latest",
+    "angular-ui-router": "latest",
     "requirejs": "latest",
     "requirejs-text": "latest"
   }

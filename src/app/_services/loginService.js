@@ -44,9 +44,15 @@ define(['angular'], function (angular) {
 
 				logInSvc.getCurrentUser = function(){
 					if(currentUser.loggedIn){
-						return currentUser;
+						return currentUser.data;
 					}else{
-						return false;
+						logInSvc.setCurrentUser()
+						.then(function(data){
+							return data;
+						},
+						function(){
+							return false;
+						});
 					}
 				}
 

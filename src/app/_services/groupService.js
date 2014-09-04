@@ -7,20 +7,40 @@ define(['angular'], function (angular) {
 
 				var groupSvc = {};
 
+				groupSvc.makeGroup = function(id, groupName, isPrivate){
 
-				groupSvc.getGroups = function(){
+					var deferred = $q.defer(),
+						addOptions = {};
+					addOptions['data'] = {
+						group : {
+							'group_name': groupName,
+					    	'private': isPrivate	
+						}
+					}
+
+					apiSvc.call('POST', 'users/'+id+'/groups', addOptions)
+					.success(function(data, status, headers, config) {
+						deferred.resolve(data);
+					})
+					.error(function(data, status, headers, config) {
+						deferred.reject('error');
+					});
+
+					return deferred.promise;
+				}
+
+
+				groupSvc.getGroups = function(id){
 
 					var deferred = $q.defer(),
 						addOptions = {};
 
-					apiSvc.call('GET', 'users/1/groups', addOptions)
+					apiSvc.call('GET', 'users/'+id+'/groups', addOptions)
 					.success(function(data, status, headers, config) {
 						deferred.resolve(data);
-						//console.log(data);
 					})
 					.error(function(data, status, headers, config) {
 						deferred.reject('error');
-						//console.log(status);
 					});
 
 					return deferred.promise;

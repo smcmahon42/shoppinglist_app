@@ -18,6 +18,12 @@ define(['angular'], function (angular) {
 						cache: false
 					};
 					
+					if(method == 'POST' && jQuery.cookie('authToken') != undefined ){
+						var tokenCookie = jQuery.cookie('authToken');
+						var tokenArray = tokenCookie.split('::'); 
+						request.headers = { 'X-XSRF-TOKEN' : tokenArray[0] }
+					}
+
 					jQuery.extend(request, options);
 					
 					return $http(request).

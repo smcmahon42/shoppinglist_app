@@ -2,14 +2,22 @@ define([
 	/* Define Module File paths here */
 	'require', 
 	'angular', 
+
 	'_services/apiConfig',
 	'_services/apiService',
 	'_services/loginService',
 	'_services/groupService',
-	'home/homeMod',
+
+	'groups/myGroupsMod',
+	'groups/makeGroupMod',
+	'groups/joinGroupMod',
+	'groups/groupMod',
+
+	'account/editAccountMod',
+	'lists/listMod',
 	'dashboard/dashboardMod',
 	'signup/signupMod',
-	'groups/myGroupsMod'
+	'home/homeMod'
 	], function () {
 		'use strict';
 
@@ -19,23 +27,34 @@ define([
 			//Module Dependents go here
 			'ui.router',
 			'base64',
-			'homeMod', 
-			'signupMod', 
-			'dashboardMod', 
-			'apiConfig', 
+			
+			//Services
+			'apiConfig',
 			'apiService',
 			'groupService',
 			'loginService',
-			'myGroupsMod'
+
+			//Section Modules
+			'myGroupsMod',
+			'makeGroupMod',
+			'joinGroupMod',
+			'groupMod',
+
+			'listMod',
+			'editAccountMod',
+			'dashboardMod',
+			'signupMod',
+			'homeMod'
 			])
 
-			.run(['$state', '$location', 'logInSvc', function ($state, $location, logInSvc) {
+			.run(['$state', '$location', 'logInSvc', '$rootScope', function ($state, $location, logInSvc, $rootScope) {
 				// ON INTIAL LOAD RUN THIS CHECK. EITHER A USER IS LOGGED IN OR NOT.
 				if( !logInSvc.hasCookie() ){ //if not logged in go to sign in
 					$state.go('/');
 				}else if( $location.path() == '' || $location.path() == '/' ){ //if logged in and no path go to dashboard page
 					$state.go('dashboard');
 				}
+
 			}])
 
 			.controller('mainController', ['$rootScope', '$scope', '$state', 'logInSvc', 
@@ -71,10 +90,10 @@ define([
 				//If person is logged in with cookie and has refreshed page 
 				//load their data in $scope.currentUser
 				if(logInSvc.hasCookie() && !$scope.currentUser.loggedIn){
+
 					logInSvc.setCurrentUser().then(
 						function(currentUser){
 							$rootScope.currentUser.loggedIn = true;
-							$rootScope.currentUser.data = currentUser;
 						}
 					);	
 				}

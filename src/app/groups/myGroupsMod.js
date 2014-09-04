@@ -6,31 +6,40 @@ define(['angular'], function (angular) {
 		.config(['$stateProvider', function($stateProvider) {
 
 			$stateProvider.state('myGroups', {
-				url: "/groups",
-				templateUrl: "app/groups/myGroups.tpl.html",
-				controller: 'mygroupsCtrl',
-				lockedPage: true
+				url: "/mygroups",
+				lockedPage: true,
+				views: {
+					'@' : {
+						templateUrl : "app/groups/myGroups.tpl.html",
+						controller : 'mygroupsCtrl'
+					},
+					'topNav@myGroups' : {
+						templateUrl : "app/navigation/secondaryNav.tpl.html"
+					}
+				}
 			});
 
 		}])
 
-		.controller('mygroupsCtrl', [ '$state', '$rootScope', '$scope', 'groupSvc',
-			function($state, $rootScope, $scope, groupSvc) {
+		.controller('mygroupsCtrl', [ '$state', '$rootScope', '$scope', 'logInSvc', 'groupSvc',
+			function($state, $rootScope, $scope, logInSvc, groupSvc) {
 
-			$scope.groups = [{"name":"b"}, {"name":"bar"}];
-			console.log($state.current);
-			var userId = $rootScope.currentUser.data.id; 
-			console.log(userId);
+			//TODO
+			//remove user data from root scope and add it only to the login service.
+			$scope.noGroups = false;
+			$scope.groups = [];
+			$scope.userData = logInSvc.getCurrentUser();
 
-			// groupSvc.getGroups()
-			// .then(
-			// 	function(data){
-			// 		$scope.groups = data[0];
-			// 	},
-			// 	function(error){
-			// 		alert('No groups available.');
-			// 	}
-			// );
+			groupSvc.getGroups($scope.userData.id)
+			.then(
+				function(data){
+					$scope.groups = data[0];
+					if(data[0] == null){ $scope.noGroups = true; }
+				},
+				function(error){
+					alert('No groups available.');
+				}
+			);
 
 		}]);//app
 

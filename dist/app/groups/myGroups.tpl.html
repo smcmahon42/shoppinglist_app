@@ -1,5 +1,13 @@
-<a ui-sref="dashboard">Dashboard</a>
-<br><br>
-<li ng-repeat="group in groups">
-	<a ui-sref="">{{group.name}}</a>
+<style type="text/css">
+	.noGroups { display: none; }	
+</style>
+
+<div ui-view="topNav"></div>
+
+<h1>My Groups</h1>
+
+<div ng-show="noGroups">No Groups Found</div>
+
+<li ng-repeat="group in groups" ng-hide="noGroups">
+	<a ui-sref="myGroups.group({ group_id : group.id })">{{group.group_name}}</a>
 </li>

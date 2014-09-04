@@ -1,6 +1,8 @@
 # About
 
-This is a fork of [Angular Seed](https://github.com/angular/angular-seed) but with changes needed for requireJS support.
+This is a side project that I am using as a learning tool to improve my skill sets and have fun.
+
+The program is a fork of [Angular Seed](https://github.com/angular/angular-seed) but with changes needed for requireJS support.
 
 * AngularJS 1.2.1
 * RequireJS 2.1.9
